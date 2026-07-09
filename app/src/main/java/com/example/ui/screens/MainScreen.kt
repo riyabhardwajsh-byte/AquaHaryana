@@ -1,6 +1,7 @@
 package com.example.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -13,7 +14,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -30,6 +33,7 @@ import android.net.Network
 import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import androidx.compose.ui.platform.LocalContext
+import com.example.R
 import com.example.ui.theme.OceanBlue
 import com.example.ui.theme.OverExploitedRed
 import com.example.ui.theme.WaterCyan
@@ -175,20 +179,15 @@ fun MainScreen(
                             )
                         }
 
-                        Box(
-                            contentAlignment = Alignment.Center,
+                        Image(
+                            painter = painterResource(id = R.drawable.aquasave_icon),
+                            contentDescription = "AquaHaryana Logo",
+                            contentScale = ContentScale.Crop,
                             modifier = Modifier
                                 .size(40.dp)
-                                .clip(CircleShape)
-                                .background(MaterialTheme.colorScheme.primary.copy(alpha = 0.12f))
-                        ) {
-                            Icon(
-                                imageVector = Icons.Default.WaterDrop,
-                                contentDescription = "AquaHaryana Drop logo",
-                                tint = MaterialTheme.colorScheme.primary,
-                                modifier = Modifier.size(20.dp)
-                            )
-                        }
+                                .clip(RoundedCornerShape(10.dp))
+                                .testTag("app_logo_image")
+                        )
                     }
                 }
             }
