@@ -6,9 +6,11 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -37,14 +39,26 @@ fun EducationScreen(
     modifier: Modifier = Modifier
 ) {
     var searchQuery by remember { mutableStateFlowOf("") }
-    var showFavoritesOnly by remember { mutableStateFlowOf(false) }
+    var selectedCategory by remember { mutableStateFlowOf("all") } // "all", "farming", "domestic", "saved"
     var expandedTechniqueId by remember { mutableStateFlowOf<String?>(null) }
 
-    val filteredTechniques = remember(searchQuery, showFavoritesOnly, techniques, favoriteTechniqueIds) {
-        val baseList = if (showFavoritesOnly) {
-            techniques.filter { favoriteTechniqueIds.contains(it.id) }
-        } else {
-            techniques
+    val filteredTechniques = remember(searchQuery, selectedCategory, techniques, favoriteTechniqueIds) {
+        val baseList = when (selectedCategory) {
+            "saved" -> techniques.filter { favoriteTechniqueIds.contains(it.id) }
+            "farming" -> techniques.filter { technique ->
+                val id = technique.id
+                id == "drip_irrigation" || id == "crop_diversification" || id == "dsr_farming" ||
+                        id == "laser_land_leveling" || id == "zero_tillage" || id == "smart_irrigation" ||
+                        id == "farm_ponds" || id == "rice_intensification" || id == "hydroponics" ||
+                        id == "happy_seeder" || id == "awd_irrigation" || id == "subsurface_drip" ||
+                        id == "water_budgeting"
+            }
+            "domestic" -> techniques.filter { technique ->
+                val id = technique.id
+                id == "rainwater_harvesting" || id == "organic_mulching" || id == "greywater_recycling" ||
+                        id == "borewell_recharge"
+            }
+            else -> techniques
         }
 
         if (searchQuery.isBlank()) {
@@ -125,11 +139,12 @@ fun EducationScreen(
 
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.CenterVertically
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier.horizontalScroll(rememberScrollState())
                 ) {
                     FilterChip(
-                        selected = !showFavoritesOnly,
-                        onClick = { showFavoritesOnly = false },
+                        selected = selectedCategory == "all",
+                        onClick = { selectedCategory = "all" },
                         label = { Text("All Practices") },
                         leadingIcon = {
                             Icon(
@@ -141,14 +156,40 @@ fun EducationScreen(
                         shape = RoundedCornerShape(12.dp)
                     )
                     FilterChip(
-                        selected = showFavoritesOnly,
-                        onClick = { showFavoritesOnly = true },
+                        selected = selectedCategory == "farming",
+                        onClick = { selectedCategory = "farming" },
+                        label = { Text("Farming") },
+                        leadingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.Agriculture,
+                                contentDescription = "Farming",
+                                modifier = Modifier.size(16.dp)
+                            )
+                        },
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                    FilterChip(
+                        selected = selectedCategory == "domestic",
+                        onClick = { selectedCategory = "domestic" },
+                        label = { Text("Domestic") },
+                        leadingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.Home,
+                                contentDescription = "Domestic",
+                                modifier = Modifier.size(16.dp)
+                            )
+                        },
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                    FilterChip(
+                        selected = selectedCategory == "saved",
+                        onClick = { selectedCategory = "saved" },
                         label = { Text("Saved (${favoriteTechniqueIds.size})") },
                         leadingIcon = {
                             Icon(
-                                imageVector = if (showFavoritesOnly) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                                imageVector = if (selectedCategory == "saved") Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                                 contentDescription = "Favorites",
-                                tint = if (showFavoritesOnly) Color.Red else MaterialTheme.colorScheme.onSurfaceVariant,
+                                tint = if (selectedCategory == "saved") Color.Red else MaterialTheme.colorScheme.onSurfaceVariant,
                                 modifier = Modifier.size(16.dp)
                             )
                         },
@@ -171,9 +212,10 @@ fun EducationScreen(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(8.dp)
                 ) {
-                    val emptyIcon = if (showFavoritesOnly) Icons.Default.FavoriteBorder else Icons.Default.SearchOff
-                    val emptyTitle = if (showFavoritesOnly) "No Saved Techniques Yet" else "No Conservation Techniques Found"
-                    val emptyDesc = if (showFavoritesOnly) {
+                    val isSavedSelected = selectedCategory == "saved"
+                    val emptyIcon = if (isSavedSelected) Icons.Default.FavoriteBorder else Icons.Default.SearchOff
+                    val emptyTitle = if (isSavedSelected) "No Saved Techniques Yet" else "No Conservation Techniques Found"
+                    val emptyDesc = if (isSavedSelected) {
                         "Tap the heart icon on any technique card to save it for quick offline reference."
                     } else {
                         "Try adjusting your keywords or search query."
@@ -182,7 +224,7 @@ fun EducationScreen(
                     Icon(
                         imageVector = emptyIcon,
                         contentDescription = emptyTitle,
-                        tint = if (showFavoritesOnly) Color.Red.copy(alpha = 0.5f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
+                        tint = if (isSavedSelected) Color.Red.copy(alpha = 0.5f) else MaterialTheme.colorScheme.onSurface.copy(alpha = 0.3f),
                         modifier = Modifier.size(64.dp)
                     )
                     Text(

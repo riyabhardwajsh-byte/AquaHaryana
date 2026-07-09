@@ -351,7 +351,25 @@ class AquaViewModel(application: Application) : AndroidViewModel(application) {
                     val systemInstruction = GeminiContent(
                         parts = listOf(
                             GeminiPart(
-                                text = "You are AquaBot, an expert AI assistant specializing in water conservation, groundwater hydrology, and sustainable agricultural practices tailored to Haryana's specific climate, soil, and geography. Provide highly relevant, accurate, and actionable water-saving tips for farmers (such as Direct Seeded Rice (DSR), micro-irrigation, rainwater harvesting, crop diversification away from water-intensive paddy to maize/pulses) and households in Haryana. Keep responses structured, concise, and professional."
+                                text = "You are AquaBot, an expert AI assistant specializing in water conservation, groundwater hydrology, and sustainable agricultural practices tailored to Haryana's specific climate, soil, and geography. Provide highly relevant, accurate, and actionable water-saving tips. Refer back to the following 17 key water-saving conservation practices: " +
+                                       "1. Drip & Sprinkler Irrigation (saves 40-50% water, up to 85% MICADA subsidy), " +
+                                       "2. Rooftop Rainwater Harvesting (saves 30% domestic water), " +
+                                       "3. Crop Diversification (paddy to maize/pulses, saves 60% water, ₹7,000/acre under Mera Pani Meri Virasat), " +
+                                       "4. Direct Seeded Rice (DSR) (saves 15-20% water, ₹4,000/acre state incentive), " +
+                                       "5. Laser Land Leveling (saves 15-20% water, ensures uniform moisture), " +
+                                       "6. Organic Soil Mulching (saves 20-30% soil moisture, prevents evaporation), " +
+                                       "7. Zero Tillage Cultivation (saves 15-20% water/fuel, ₹1,000/acre state support), " +
+                                       "8. Greywater Treatment & Reuse (saves 40% household water, great for gardens), " +
+                                       "9. Smart IoT Irrigation Systems (saves 30-45% water using real-time soil sensors), " +
+                                       "10. On-Farm Ponds (saves 30% groundwater extraction by holding monsoon runoff), " +
+                                       "11. System of Rice Intensification (SRI) (saves 25-35% water via alternate wetting), " +
+                                       "12. Hydroponics & Soilless Farming (saves 90% water, perfect for vegetables), " +
+                                       "13. Happy Seeder Technology (saves 15-20% water, manages wheat residue, reduces stubble burning), " +
+                                       "14. Artificial Borewell Recharge (recharges deep aquifers, prevents well drying), " +
+                                       "15. Alternate Wetting & Drying (AWD) (saves 20-25% water in rice fields), " +
+                                       "16. Sub-surface Drip Irrigation (saves 50-60% water, targets roots directly), " +
+                                       "17. Community Water Budgeting (saves 15% village water through shared auditing). " +
+                                       "Highlight these practices and relevant Haryana Government Schemes (e.g. Mera Pani Meri Virasat, MICADA subsidies of up to 85%, Atal Bhujal Yojana). Keep responses structured, professional, friendly, and concise."
                             )
                         )
                     )
@@ -422,6 +440,69 @@ class AquaViewModel(application: Application) : AndroidViewModel(application) {
                         "• **Rooftop Harvesting:** Collects clean rainwater in storage tanks for domestic use.\n" +
                         "• **Farm Ponds:** Excavating ponds with plastic linings captures monsoon runoff, relieving borewell extraction by 30%.\n" +
                         "• **Government Mandate:** Haryana building bylaws mandate rainwater harvesting systems for all new buildings over a certain size."
+            }
+            lowercasePrompt.contains("laser") || lowercasePrompt.contains("leveling") || lowercasePrompt.contains("leveler") -> {
+                "**Laser Land Leveling** is a precision farming practice widely supported in Haryana:\n\n" +
+                        "• **Water Saving:** Saves **15% to 20%** of irrigation water by ensuring flat, uniform fields.\n" +
+                        "• **Yield Boost:** Improves crop yields by **10% to 15%** due to uniform moisture distribution.\n" +
+                        "• **Haryana Govt Support:** Levelers are heavily subsidized for cooperative farming groups and custom hiring centers across Haryana."
+            }
+            lowercasePrompt.contains("mulch") || lowercasePrompt.contains("mulching") -> {
+                "**Organic Soil Mulching** involves covering the soil surface with crop residue or plastic sheets:\n\n" +
+                        "• **Water Saving:** Saves **20% to 30%** soil moisture by drastically reducing evaporation.\n" +
+                        "• **Other Benefits:** Controls weed growth, maintains optimal soil temperature, and prevents soil erosion.\n" +
+                        "• **Best Applied on:** Vegetable crops, orchards, and high-value horticulture in districts like Sonipat and Karnal."
+            }
+            lowercasePrompt.contains("zero tillage") || lowercasePrompt.contains("no-till") || lowercasePrompt.contains("tillage") || lowercasePrompt.contains("zero till") -> {
+                "**Zero Tillage Cultivation** allows direct sowing of wheat or pulses immediately after paddy harvest without plowing:\n\n" +
+                        "• **Water Saving:** Saves **15% to 20%** of water on the first irrigation cycle.\n" +
+                        "• **Benefits:** Reduces fuel consumption, saves time, and preserves soil organic carbon.\n" +
+                        "• **Haryana Govt Incentive:** Farmers receive state assistance of **₹1,000 per acre** for adopting zero-tillage practices."
+            }
+            lowercasePrompt.contains("greywater") || lowercasePrompt.contains("graywater") || lowercasePrompt.contains("waste-water") || lowercasePrompt.contains("recycling") -> {
+                "**Greywater Treatment & Reuse** channels wastewater from bathrooms, washing machines, and kitchens:\n\n" +
+                        "• **Water Saving:** Can offset up to **40%** of domestic fresh-water demand.\n" +
+                        "• **Haryana 3-Pond System:** In rural Haryana, the government is building decentralized 3-pond system waste treatment plants in villages to reuse wastewater for agriculture."
+            }
+            lowercasePrompt.contains("smart") || lowercasePrompt.contains("iot") || lowercasePrompt.contains("sensor") -> {
+                "**Smart IoT Irrigation Systems** utilize soil moisture sensors and weather data to automate watering:\n\n" +
+                        "• **Water Saving:** Prevents over-watering, saving **30% to 45%** of irrigation water.\n" +
+                        "• **Haryana Tech Push:** The government promotes smart farming systems through agricultural universities (like HAU Hisar) and offers grants for Agri-Tech startups."
+            }
+            lowercasePrompt.contains("pond") || lowercasePrompt.contains("ponds") -> {
+                "**On-Farm Ponds** capture excess monsoon runoff to store water for supplementary irrigation:\n\n" +
+                        "• **Water Saving:** Prevents reliance on depleting tubewells and recharges local groundwater.\n" +
+                        "• **Haryana Govt Subsidy:** Offers up to **70% to 85% financial assistance** for constructing lined farm ponds and solar-powered pump sets."
+            }
+            lowercasePrompt.contains("sri") || lowercasePrompt.contains("system of rice") || lowercasePrompt.contains("intensification") -> {
+                "**System of Rice Intensification (SRI)** is a low-water alternative method of transplanting young seedlings:\n\n" +
+                        "• **Water Saving:** Reduces water consumption by **25% to 35%** compared to traditional flood irrigation.\n" +
+                        "• **Benefits:** Uses 90% fewer seeds, produces robust roots, and increases paddy yield by 20%."
+            }
+            lowercasePrompt.contains("hydroponic") || lowercasePrompt.contains("hydroponics") || lowercasePrompt.contains("soilless") -> {
+                "**Hydroponics & Soilless Farming** grows crops in nutrient-rich water solutions without soil:\n\n" +
+                        "• **Water Saving:** Drastically saves up to **90% water** compared to traditional open-field farming.\n" +
+                        "• **Haryana Govt Scheme:** The Horticulture Department provides high subsidies (up to 50%-65%) for setting up state-of-the-art polyhouses and hydroponic structures."
+            }
+            lowercasePrompt.contains("happy seeder") || lowercasePrompt.contains("stubble") || lowercasePrompt.contains("burning") -> {
+                "**Happy Seeder Technology** is a tractor-mounted machine that sows wheat seeds directly through standing paddy straw residue:\n\n" +
+                        "• **Water Saving:** Conserves residual soil moisture, reducing the first irrigation requirement by **15% to 20%**.\n" +
+                        "• **Air Quality:** Combats Haryana's winter air pollution by providing a viable alternative to stubble burning."
+            }
+            lowercasePrompt.contains("awd") || lowercasePrompt.contains("alternate wetting") -> {
+                "**Alternate Wetting & Drying (AWD)** is a water management technique for rice cultivation:\n\n" +
+                        "• **Water Saving:** Reduces water use by **20% to 25%** without sacrificing paddy yield.\n" +
+                        "• **Method:** Instead of keeping the field permanently flooded, it is allowed to dry for a few days until water table drops to 15cm below soil surface before re-flooding."
+            }
+            lowercasePrompt.contains("subsurface") || lowercasePrompt.contains("sub-surface") -> {
+                "**Sub-surface Drip Irrigation** installs drip tubes 10-30 cm below the soil surface directly into plant root zones:\n\n" +
+                        "• **Water Saving:** Conserves **50% to 60%** water compared to flood irrigation by eliminating surface evaporation.\n" +
+                        "• **Haryana Govt Subsidy:** Highly promoted by MICADA with subsidies up to **85%** to help save water in sandy soils of districts like Mahendragarh."
+            }
+            lowercasePrompt.contains("budgeting") || lowercasePrompt.contains("audit") || lowercasePrompt.contains("village water") -> {
+                "**Community Water Budgeting** involves villages monitoring, auditing, and sharing local water resources collectively:\n\n" +
+                        "• **Water Saving:** Empowers rural communities to save up to **15% to 20%** water through cooperative planning.\n" +
+                        "• **Atal Bhujal Yojana:** Active in Haryana, this scheme funds village Water Security Plans and educates Panchayat members on sustainable budgeting."
             }
             lowercasePrompt.contains("kaithal") || lowercasePrompt.contains("kurukshetra") || lowercasePrompt.contains("district") -> {
                 "Both Kurukshetra and Kaithal are classified in the **Over-Exploited** groundwater zone.\n\n" +

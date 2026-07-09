@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaHaryana - Water Conservation Assistant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B132B',
+                            slate: '#1C2541',
+                            blue: '#394B73',
+                            cyan: '#00BCD4',
+                            teal: '#00E5FF',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #070D1E;
+            color: #F8FAFC;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00E5FF 0%, #00BCD4 50%, #394B73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect {
+            box-shadow: 0 0 40px rgba(0, 229, 255, 0.15);
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen selection:bg-brand-cyan selection:text-brand-dark overflow-x-hidden">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-white/5 backdrop-blur-md sticky top-0 z-50 bg-[#070D1E]/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-cyan to-brand-blue flex items-center justify-center shadow-lg shadow-brand-cyan/20">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+                    </svg>
+                </div>
+                <span class="font-display font-bold text-2xl tracking-tight text-white">Aqua<span class="text-brand-teal">Haryana</span></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#features" class="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden md:inline-block">Features</a>
+                <a href="#architecture" class="text-sm font-medium text-slate-300 hover:text-white transition-colors hidden md:inline-block">Architecture</a>
+                <a href="#how-to-use" class="bg-brand-cyan/10 hover:bg-brand-cyan/20 border border-brand-cyan/30 text-brand-teal px-5 py-2.5 rounded-full text-sm font-semibold transition-all">
+                    How to Launch
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-32 overflow-hidden">
+        <!-- Ambient background glow -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-cyan/10 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Text Area -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-cyan/10 border border-brand-cyan/20 text-brand-teal text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2 h-2 rounded-full bg-brand-teal animate-pulse"></span>
+                        Native Android & AI Dashboard
+                    </div>
+                    
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.15] tracking-tight">
+                        Preserving Haryana's Water with <span class="gradient-text">Smart Dashboards & AI</span>
+                    </h1>
+                    
+                    <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        AquaHaryana is a premium, educational dashboard application built with native Jetpack Compose. It delivers ground status insights, live climate metrics, and customized offline water-saving resources to help combat groundwater overdraft across Haryana's districts.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                        <a href="#how-to-use" class="bg-gradient-to-r from-brand-cyan to-brand-blue hover:from-brand-teal hover:to-brand-cyan text-white px-8 py-4 rounded-2xl font-bold transition-all shadow-lg shadow-brand-cyan/10 text-center">
+                            Deploy & Install APK
+                        </a>
+                        <a href="#features" class="bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 px-8 py-4 rounded-2xl font-semibold transition-all text-center">
+                            Explore Key Features
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mockup Graphics / Android Screen -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 sm:w-80 h-[600px] rounded-[48px] border-[8px] border-slate-800 bg-[#070D1E] glow-effect overflow-hidden relative">
+                        <!-- Top Camera Notch -->
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl z-20"></div>
+                        
+                        <!-- Internal App UI Preview -->
+                        <div class="p-6 h-full flex flex-col justify-between bg-slate-950/40 relative">
+                            <!-- App Header -->
+                            <div class="flex justify-between items-center mt-4">
+                                <div>
+                                    <span class="text-xs text-slate-500 uppercase tracking-wider font-semibold block">Welcome</span>
+                                    <span class="text-base text-white font-bold">Haryana Conservation</span>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-brand-cyan/20 flex items-center justify-center">
+                                    <span class="text-xs text-brand-teal font-bold">HY</span>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Dashboard Card -->
+                            <div class="bg-brand-slate/40 border border-white/5 rounded-2xl p-4 my-4 space-y-3">
+                                <div class="flex items-center gap-2">
+                                    <div class="w-2 h-2 rounded-full bg-brand-teal"></div>
+                                    <span class="text-[10px] text-brand-teal font-bold tracking-wider uppercase">Groundwater Risk Tracker</span>
+                                </div>
+                                <h4 class="text-sm font-extrabold text-white">Kurukshetra Block</h4>
+                                <div class="h-1.5 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full w-4/5 bg-red-500 rounded-full"></div>
+                                </div>
+                                <div class="flex justify-between text-[9px] text-slate-500 font-semibold">
+                                    <span>Over-Exploited State</span>
+                                    <span class="text-red-400 font-bold">Critical</span>
+                                </div>
+                            </div>
+
+                            <!-- Mini Weather Widget -->
+                            <div class="bg-[#101935] border border-brand-cyan/20 rounded-2xl p-4 space-y-2">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[10px] font-bold text-slate-300">Live Haryana Climate</span>
+                                    <span class="text-xs font-bold text-brand-teal">32°C</span>
+                                </div>
+                                <p class="text-[10px] text-slate-400 leading-normal">
+                                    High temperature detected. Irrigation moisture evaporation is active. Water plants after 6:00 PM to save 30% water!
+                                </p>
+                            </div>
+
+                            <!-- Bot message bubble -->
+                            <div class="bg-brand-cyan/10 border border-brand-cyan/15 rounded-2xl p-4 mt-4 text-[10px] text-slate-300">
+                                <span class="font-bold text-brand-teal block mb-1">AquaBot (Gemini AI)</span>
+                                Ask me about DSR seeders, micro-irrigation schemes, or water conservation tips!
+                            </div>
+
+                            <!-- Navigation Bar Simulator -->
+                            <div class="mt-4 pt-3 border-t border-white/5 flex justify-around text-slate-500 text-[10px] font-bold">
+                                <span class="text-brand-teal">Dashboard</span>
+                                <span>Education</span>
+                                <span>AquaBot</span>
+                                <span>Resources</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features Grid -->
+    <section id="features" class="py-20 bg-slate-900/40 border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">
+                    Premium Android Capabilities Built-In
+                </h2>
+                <p class="text-slate-400">
+                    AquaHaryana combines real-time data integrations, intelligent caching architectures, and local AI companions.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Live Weather Widget -->
+                <div class="bg-[#0D1527] border border-white/5 hover:border-brand-cyan/20 rounded-3xl p-8 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-teal mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Live Haryana Weather</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Fetches current humidity and temperature data for Haryana dynamically using the Open-Meteo REST API. Provides dynamic context warnings directly alongside your daily conservation suggestions.
+                    </p>
+                </div>
+
+                <!-- SQLite/Room Offline Cache -->
+                <div class="bg-[#0D1527] border border-white/5 hover:border-brand-cyan/20 rounded-3xl p-8 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-teal mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">Local Room Cache</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Integrated with a robust SQLite Room Database engine. Caches more than 15 water-saving techniques so you can study, view, and mark favorites even when entirely disconnected in rural areas.
+                    </p>
+                </div>
+
+                <!-- Voice-Enabled AquaBot -->
+                <div class="bg-[#0D1527] border border-white/5 hover:border-brand-cyan/20 rounded-3xl p-8 transition-all hover:-translate-y-1">
+                    <div class="w-12 h-12 rounded-2xl bg-brand-cyan/10 flex items-center justify-center text-brand-teal mb-6">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-3">AquaBot Voice Assistant</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Features full integration with Gemini API models. Supports speech-to-text input so farmers and community organizers can ask conservation questions using their microphone directly.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture & Platform Notice -->
+    <section id="architecture" class="py-20 max-w-7xl mx-auto px-6">
+        <div class="bg-gradient-to-br from-[#0F1A34] to-[#0A1124] border border-white/5 rounded-3xl p-8 lg:p-12 relative overflow-hidden">
+            <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-cyan/15 rounded-full blur-[100px] pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <h2 class="font-display font-extrabold text-2xl sm:text-3xl text-white">Why did Vercel show 404?</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        AquaHaryana is a **Native Android Application** coded in Kotlin and compiled using Gradle. Standard cloud hosting networks like Vercel expect traditional web applications (such as Next.js, React, or standard HTML sites) and cannot directly compile or run mobile Android Gradle configurations.
+                    </p>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        To resolve the 404 error, we have added this custom **HTML5 Landing and Documentation Page** to the root of your workspace! Vercel will now automatically build and serve this beautiful landing page, showcasing your app to anyone visiting your domain.
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="p-4 bg-[#070D1E]/60 border border-white/5 rounded-2xl flex items-start gap-4">
+                        <div class="text-brand-teal text-xl font-bold mt-1">01</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Centralized Local Database</h4>
+                            <p class="text-slate-400 text-xs mt-1">Room DB and custom type adapters cache structured local models safely on the device filesystem.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-[#070D1E]/60 border border-white/5 rounded-2xl flex items-start gap-4">
+                        <div class="text-brand-teal text-xl font-bold mt-1">02</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">State Flows & Lifecycle</h4>
+                            <p class="text-slate-400 text-xs mt-1">Uses modern Kotlin Coroutines, flow structures, and StateFlows aligned directly to Android Lifecycle states.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-[#070D1E]/60 border border-white/5 rounded-2xl flex items-start gap-4">
+                        <div class="text-brand-teal text-xl font-bold mt-1">03</div>
+                        <div>
+                            <h4 class="font-bold text-white text-sm">Jetpack Compose Layout System</h4>
+                            <p class="text-slate-400 text-xs mt-1">Follows Material Design 3 guidelines, dynamic colors, full support for dark mode, and responsive layouts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How To Use / Setup -->
+    <section id="how-to-use" class="py-20 bg-[#070D1E] border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-6 space-y-12">
+            <div class="text-center space-y-4">
+                <h2 class="font-display font-extrabold text-3xl text-white">How to Run & Install your Android App</h2>
+                <p class="text-slate-400 text-sm">Follow these straightforward steps to experience your completed Native App in real-time.</p>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Step 1 -->
+                <div class="bg-slate-900/20 border border-white/5 rounded-2xl p-6 flex flex-col md:flex-row gap-6">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-teal font-bold shrink-0">
+                        1
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-white">In-Browser Android Streaming Emulator</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            The absolute fastest way to view your changes is within the **AI Studio browser workspace**. Simply look at the interactive mobile preview streaming interface on the right panel to test and inspect all UI flow changes!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-900/20 border border-white/5 rounded-2xl p-6 flex flex-col md:flex-row gap-6">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-teal font-bold shrink-0">
+                        2
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-white">Download or Export Android Package (APK/AAB)</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Ready to run on physical devices? Click on the **Settings/Menu icon** in the top right-hand area of Google AI Studio. From there, you can export the workspace as a **ZIP package**, push to **GitHub**, or trigger a final build task to export **APKs / AABs** for manual installation on your smartphone.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-900/20 border border-white/5 rounded-2xl p-6 flex flex-col md:flex-row gap-6">
+                    <div class="w-12 h-12 rounded-xl bg-brand-cyan/10 flex items-center justify-center text-brand-teal font-bold shrink-0">
+                        3
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-lg font-bold text-white">Vercel Web Hosting Deployment</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Since you linked your workspace repository with Vercel, this showcase page is now fully live! Vercel will compile and host this elegant landing page seamlessly. No more 404 errors. Anyone clicking your Vercel URL can read your dashboard overview, inspect the offline database capabilities, and download instructions for the APK.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/5 py-12 text-center text-slate-500 text-sm">
+        <div class="max-w-7xl mx-auto px-6 space-y-4">
+            <p>AquaHaryana &copy; 2026. Built with Google AI Studio.</p>
+            <p class="text-xs">This is an educational platform dedicated to sustainable water conservation awareness in Haryana, India.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
