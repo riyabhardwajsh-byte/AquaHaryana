@@ -182,13 +182,10 @@ fun MainScreen(
                         Image(
                             painter = painterResource(id = R.drawable.aquasave_icon),
                             contentDescription = "AquaHaryana Logo",
-                            contentScale = ContentScale.Fit,
+                            contentScale = ContentScale.Crop,
                             modifier = Modifier
-                                .width(80.dp)
-                                .height(40.dp)
-                                .clip(RoundedCornerShape(8.dp))
-                                .background(Color.Black.copy(alpha = 0.2f))
-                                .padding(horizontal = 4.dp, vertical = 2.dp)
+                                .size(40.dp)
+                                .clip(RoundedCornerShape(10.dp))
                                 .testTag("app_logo_image")
                         )
                     }
