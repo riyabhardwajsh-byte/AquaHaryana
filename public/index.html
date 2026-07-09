@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AquaHaryana - Smart Water Conservation Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#050B1A',
+                            slate: '#0E172E',
+                            card: '#131F3D',
+                            accent: '#00E5FF',
+                            cyan: '#00BCD4',
+                            blue: '#1E3A8A',
+                            emerald: '#10B981',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #050B1A;
+            color: #F8FAFC;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #00E5FF 0%, #00BCD4 50%, #60A5FA 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px rgba(0, 229, 255, 0.15);
+        }
+        .glow-card:hover {
+            box-shadow: 0 10px 30px rgba(0, 229, 255, 0.08);
+            border-color: rgba(0, 229, 255, 0.3);
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="font-sans min-h-screen selection:bg-brand-accent selection:text-brand-dark overflow-x-hidden">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-white/5 backdrop-blur-md sticky top-0 z-50 bg-brand-dark/80">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <img src="aquasave_icon.png" alt="AquaHaryana Icon" class="w-12 h-12 rounded-2xl object-cover border-2 border-brand-accent/20 shadow-lg shadow-brand-accent/10">
+                <span class="font-display font-bold text-2xl tracking-tight text-white">Aqua<span class="text-brand-accent">Haryana</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-6">
+                <a href="#practices" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">17 Practices</a>
+                <a href="#aquabot" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">AquaBot Assistant</a>
+                <a href="#schemes" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">State Schemes</a>
+                <a href="#how-to-use" class="text-sm font-medium text-slate-300 hover:text-white transition-colors">Installation</a>
+            </nav>
+            <div class="flex items-center gap-3">
+                <a href="#how-to-use" class="bg-gradient-to-r from-brand-cyan to-brand-accent text-brand-dark hover:brightness-110 px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-md shadow-brand-accent/10">
+                    Get APK
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 overflow-hidden">
+        <!-- Ambient Background Glows -->
+        <div class="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-brand-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <div class="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-[400px] h-[400px] bg-brand-cyan/5 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                <!-- Text Area -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-semibold uppercase tracking-wider">
+                        <span class="w-2.5 h-2.5 rounded-full bg-brand-accent animate-ping"></span>
+                        Native Android App Now Live
+                    </div>
+                    
+                    <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-[1.12] tracking-tight">
+                        Combating Groundwater Overdraft with <span class="gradient-text">Smart Tech & AI</span>
+                    </h1>
+                    
+                    <p class="text-slate-300 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                        AquaHaryana is Haryana's ultimate, modern water conservation platform. Combining a rich Jetpack Compose UI, a fast local SQLite Room database, weather forecast APIs, and a voice-activated Gemini AI companion to help farmers and citizens protect precious groundwater.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#how-to-use" class="bg-gradient-to-r from-brand-accent to-brand-cyan hover:brightness-110 text-brand-dark px-8 py-4 rounded-2xl font-extrabold transition-all shadow-lg shadow-brand-accent/25 text-center flex items-center justify-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>
+                            Download Native APK
+                        </a>
+                        <a href="#practices" class="bg-white/5 hover:bg-white/10 border border-white/10 text-slate-200 px-8 py-4 rounded-2xl font-semibold transition-all text-center">
+                            Explore 17 Conservation Practices
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Mockup Graphics / Android Screen -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-72 sm:w-80 h-[620px] rounded-[50px] border-[8px] border-slate-800 bg-[#070D1E] glow-effect overflow-hidden relative">
+                        <!-- Top Camera Notch -->
+                        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-800 rounded-b-2xl z-20"></div>
+                        
+                        <!-- Internal App UI Preview -->
+                        <div class="p-5 h-full flex flex-col justify-between bg-slate-950/40 relative">
+                            <!-- App Header -->
+                            <div class="flex justify-between items-center mt-5">
+                                <div class="flex items-center gap-2">
+                                    <img src="aquasave_icon.png" class="w-8 h-8 rounded-lg object-cover">
+                                    <div>
+                                        <span class="text-[10px] text-slate-500 uppercase tracking-wider font-semibold block">State Platform</span>
+                                        <span class="text-xs text-white font-bold">AquaHaryana</span>
+                                    </div>
+                                </div>
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/20 flex items-center justify-center border border-brand-accent/30">
+                                    <span class="text-xs text-brand-accent font-bold">HR</span>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Dashboard Card -->
+                            <div class="bg-brand-slate/80 border border-white/10 rounded-2xl p-4 my-3 space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <div class="flex items-center gap-1.5">
+                                        <div class="w-2 h-2 rounded-full bg-brand-accent animate-pulse"></div>
+                                        <span class="text-[9px] text-brand-accent font-bold tracking-wider uppercase">Groundwater Risk Tracker</span>
+                                    </div>
+                                    <span class="text-[9px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded-full font-bold">Over-Exploited</span>
+                                </div>
+                                <h4 class="text-xs font-bold text-white">Kurukshetra Block (District)</h4>
+                                <div class="h-2 w-full bg-slate-800 rounded-full overflow-hidden">
+                                    <div class="h-full w-[88%] bg-red-500 rounded-full"></div>
+                                </div>
+                                <div class="flex justify-between text-[8px] text-slate-400">
+                                    <span>Aquifer Depth: 42.5 Meters</span>
+                                    <span class="text-red-400 font-bold">Critical Overdraft</span>
+                                </div>
+                            </div>
+
+                            <!-- Mini Weather Widget -->
+                            <div class="bg-brand-slate/40 border border-brand-accent/15 rounded-xl p-3 space-y-1.5">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-[9px] font-bold text-slate-300">Live Hisar Weather</span>
+                                    <span class="text-xs font-bold text-brand-accent">34°C - Dry Wind</span>
+                                </div>
+                                <p class="text-[9px] text-slate-400 leading-snug">
+                                    Rapid soil moisture evaporation is active today. Switch to Drip Irrigation or mulch to protect crops.
+                                </p>
+                            </div>
+
+                            <!-- Bot message bubble -->
+                            <div class="bg-brand-accent/10 border border-brand-accent/15 rounded-xl p-3 mt-2 text-[9px] text-slate-300">
+                                <span class="font-bold text-brand-accent block mb-0.5">AquaBot Assistant</span>
+                                "DSR farming saves up to 20% irrigation water and qualifies for the ₹4,000 per acre state subsidy. Ask me how to get started!"
+                            </div>
+
+                            <!-- Navigation Bar Simulator -->
+                            <div class="mt-3 pt-3 border-t border-white/5 flex justify-around text-slate-500 text-[9px] font-bold">
+                                <span class="text-brand-accent flex flex-col items-center">
+                                    <span class="block">⚏</span>
+                                    <span>Home</span>
+                                </span>
+                                <span class="flex flex-col items-center">
+                                    <span class="block">📖</span>
+                                    <span>Education</span>
+                                </span>
+                                <span class="flex flex-col items-center">
+                                    <span class="block">💬</span>
+                                    <span>AquaBot</span>
+                                </span>
+                                <span class="flex flex-col items-center">
+                                    <span class="block">★</span>
+                                    <span>Saved</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17 Water Conservation Practices -->
+    <section id="practices" class="py-24 bg-brand-slate border-y border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">
+                    17 Essential Water-Saving Practices
+                </h2>
+                <p class="text-slate-400">
+                    AquaHaryana natively implements and maps all 17 critical water-saving methods optimized for Haryana's fields, homes, and community networks.
+                </p>
+                <div class="flex flex-wrap justify-center gap-3 pt-2">
+                    <button onclick="filterPractices('all')" id="btn-all" class="px-4 py-1.5 rounded-full text-xs font-bold bg-brand-accent text-brand-dark transition-all">All Practices</button>
+                    <button onclick="filterPractices('farming')" id="btn-farming" class="px-4 py-1.5 rounded-full text-xs font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">Agricultural (Farming)</button>
+                    <button onclick="filterPractices('domestic')" id="btn-domestic" class="px-4 py-1.5 rounded-full text-xs font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">Domestic (Household)</button>
+                    <button onclick="filterPractices('community')" id="btn-community" class="px-4 py-1.5 rounded-full text-xs font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all">Community & Policy</button>
+                </div>
+            </div>
+
+            <!-- Conservation Grid -->
+            <div id="practices-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Practice 1 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 01</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Drip & Sprinkler Irrigation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Minimizes evaporation losses by releasing water directly onto plant roots through a complex network of pipe nozzles.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 40% - 50% Water</span>
+                        <span class="text-slate-400">Up to 85% Subsidized</span>
+                    </div>
+                </div>
+
+                <!-- Practice 2 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="domestic">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-cyan/10 text-brand-cyan px-3 py-1 rounded-full font-bold">Domestic</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 02</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Rooftop Rainwater Harvesting</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Captures, channels, and filters precipitation directly from roofs to replenish underground sumps or neighborhood aquifers.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 30% Domestic Water</span>
+                        <span class="text-slate-400">Govt Mandated</span>
+                    </div>
+                </div>
+
+                <!-- Practice 3 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 03</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Crop Diversification</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Transitioning high water-demand fields like paddy into cotton, maize, millets, or pulses that flourish in dry climates.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 60% Water</span>
+                        <span class="text-emerald-400 font-bold">₹7,000/Acre Reward</span>
+                    </div>
+                </div>
+
+                <!-- Practice 4 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 04</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Direct Seeded Rice (DSR)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Sowing seeds directly using specialized seeders, eliminating the water-submerged puddling phase entirely.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 15% - 20% Water</span>
+                        <span class="text-emerald-400 font-bold">₹4,000/Acre Grant</span>
+                    </div>
+                </div>
+
+                <!-- Practice 5 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 05</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Laser Land Leveling</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Uses high-precision laser guidance arrays to level soil flat, preventing dry patches and soggy, flooded corners.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 15% - 20% Water</span>
+                        <span class="text-slate-400">Improves Yield 15%</span>
+                    </div>
+                </div>
+
+                <!-- Practice 6 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 06</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Organic Soil Mulching</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Spreading clean organic plant straw, crop husks, or biodegradable sheets over topsoil to block heat and retain dampness.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 25% Evaporation</span>
+                        <span class="text-slate-400">Controls Weeds</span>
+                    </div>
+                </div>
+
+                <!-- Practice 7 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 07</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Zero Tillage Cultivation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Direct sowing into residual crops immediately without plowing, preserving soil moisture and carbon depth.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 15% Irrigation</span>
+                        <span class="text-emerald-400 font-bold">₹1,000/Acre Scheme</span>
+                    </div>
+                </div>
+
+                <!-- Practice 8 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="domestic">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-cyan/10 text-brand-cyan px-3 py-1 rounded-full font-bold">Domestic</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 08</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Greywater Treatment</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Filtering and recycling residential sink, basin, and laundry runoff for washing, landscaping, or toilet flushing.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 40% Domestic Use</span>
+                        <span class="text-slate-400">Decentralized Ponds</span>
+                    </div>
+                </div>
+
+                <!-- Practice 9 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 09</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Smart IoT Irrigation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Deploys soil hygrometers and remote microcontrollers to supply water strictly when target moisture limits drop.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 30% - 45% Water</span>
+                        <span class="text-slate-400">Zero Over-Irrigation</span>
+                    </div>
+                </div>
+
+                <!-- Practice 10 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 10</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">On-Farm Lined Ponds</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Carves clay or high-durability plastic-lined ponds to store rainfall runoff for supplemental field irrigation.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 30% Extraction</span>
+                        <span class="text-slate-400">70% State Assistance</span>
+                    </div>
+                </div>
+
+                <!-- Practice 11 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 11</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">System of Rice Intensification (SRI)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        A dynamic method of planting wide-spaced young rice seedlings instead of continuous deep flooding.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 25% - 35% Water</span>
+                        <span class="text-slate-400">90% Fewer Seeds</span>
+                    </div>
+                </div>
+
+                <!-- Practice 12 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 12</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Hydroponics & Soilless Cultivation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Growing high-yield crops and exotic greens in recirculated water tables inside smart covered polyhouses.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves up to 90% Water</span>
+                        <span class="text-slate-400">Up to 65% Polyhouse Subsidy</span>
+                    </div>
+                </div>
+
+                <!-- Practice 13 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 13</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Happy Seeder Technology</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Sows wheat directly through heavy paddy stubble mulching, retaining moisture and stopping destructive stubble burning.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Conserves Residual Dampness</span>
+                        <span class="text-slate-400">Subsidized Implements</span>
+                    </div>
+                </div>
+
+                <!-- Practice 14 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="community">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-violet-500/10 text-violet-400 px-3 py-1 rounded-full font-bold">Community</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 14</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Artificial Borewell Recharge</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Diverts surface runoff and stormwater into filter chambers to inject fresh water back into depleted deep aquifers.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Prevents Aquifer Dryness</span>
+                        <span class="text-slate-400">Atal Bhujal Scheme</span>
+                    </div>
+                </div>
+
+                <!-- Practice 15 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 15</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Alternate Wetting & Drying (AWD)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Flooding rice fields only after soil dry cycles, reducing methane emissions and water waste.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 20% - 25% Water</span>
+                        <span class="text-slate-400">Healthy Roots</span>
+                    </div>
+                </div>
+
+                <!-- Practice 16 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="farming">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-brand-accent/10 text-brand-accent px-3 py-1 rounded-full font-bold">Agriculture</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 16</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Sub-surface Drip Irrigation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Buries drip emitter pipes 15-30 cm below surface clay to nourish roots directly without topsoil runoff or evaporation.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 50% - 60% Irrigation</span>
+                        <span class="text-slate-400">Highly Recommended</span>
+                    </div>
+                </div>
+
+                <!-- Practice 17 -->
+                <div class="practice-card bg-brand-dark/60 border border-white/5 hover:border-brand-accent/20 rounded-3xl p-6 transition-all duration-300 glow-card" data-category="community">
+                    <div class="flex items-center justify-between mb-4">
+                        <span class="text-xs bg-violet-500/10 text-violet-400 px-3 py-1 rounded-full font-bold">Community</span>
+                        <span class="text-xs text-slate-500 font-bold">Practice 17</span>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Community Water Budgeting</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                        Panchayat-led water audits measuring community supply vs. agricultural cropping targets to draft balanced consumption security plans.
+                    </p>
+                    <div class="border-t border-white/5 pt-3 flex justify-between text-xs font-semibold">
+                        <span class="text-brand-accent">Saves 15% Village Water</span>
+                        <span class="text-slate-400">Cooperative Action</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- AquaBot Simulator Section -->
+    <section id="aquabot" class="py-24 max-w-7xl mx-auto px-6 relative">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-cyan/5 rounded-full blur-[130px] pointer-events-none"></div>
+
+        <div class="bg-gradient-to-br from-[#0B152B] to-[#0E1B38] border border-white/5 rounded-[40px] p-8 lg:p-14 relative overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Chat Description -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-accent/10 border border-brand-accent/20 text-brand-accent text-xs font-semibold">
+                        ✨ Powered by Google Gemini API
+                    </div>
+                    <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white">
+                        Meet AquaBot: Your Intelligent Conservation Advisor
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        AquaBot is the heart of the AquaHaryana application. Leveraging Gemini's conversational capabilities and a robust offline database, AquaBot answers questions on local Haryanvi soils, crops, subsidies, and dynamic weather impacts.
+                    </p>
+                    
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xs font-bold">✓</span>
+                            <span class="text-sm font-medium text-slate-300">Natively supports Microphone Speech-to-Text Input</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xs font-bold">✓</span>
+                            <span class="text-sm font-medium text-slate-300">Understands specific Haryana block groundwater details</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center text-brand-accent text-xs font-bold">✓</span>
+                            <span class="text-sm font-medium text-slate-300">Deeply integrated with Mera Pani Meri Virasat schemes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Chat Demo -->
+                <div class="lg:col-span-6">
+                    <div class="bg-brand-dark/90 border border-white/10 rounded-3xl overflow-hidden shadow-2xl flex flex-col h-[400px]">
+                        <!-- Chat Header -->
+                        <div class="bg-brand-slate border-b border-white/5 px-6 py-4 flex items-center justify-between">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-brand-accent/10 border border-brand-accent/30 flex items-center justify-center text-brand-accent font-bold text-xs">AB</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">AquaBot Simulator</h4>
+                                    <span class="text-[10px] text-brand-accent font-semibold block">Online • Expert Mode</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Chat Body -->
+                        <div class="flex-1 p-6 space-y-4 overflow-y-auto text-xs" id="chat-simulator-body">
+                            <!-- Bot Msg -->
+                            <div class="flex items-start gap-3">
+                                <div class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center shrink-0 font-bold text-[9px] text-brand-accent">AB</div>
+                                <div class="bg-brand-slate text-slate-300 p-3.5 rounded-2xl max-w-[80%] leading-relaxed">
+                                    Ram Ram! Welcome to Haryana's smart water counselor. Click on any of the questions below to try my responses!
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Interactive Buttons -->
+                        <div class="p-4 border-t border-white/5 bg-brand-slate/40 flex gap-2 overflow-x-auto">
+                            <button onclick="askDemo('Tell me about Crop Diversification')" class="shrink-0 bg-brand-accent/10 hover:bg-brand-accent/25 border border-brand-accent/30 text-brand-accent px-4 py-2 rounded-xl font-bold text-xs transition-all">
+                                Crop Diversification?
+                            </button>
+                            <button onclick="askDemo('How does DSR help rice farmers?')" class="shrink-0 bg-brand-accent/10 hover:bg-brand-accent/25 border border-brand-accent/30 text-brand-accent px-4 py-2 rounded-xl font-bold text-xs transition-all">
+                                Explain DSR
+                            </button>
+                            <button onclick="askDemo('Is Mahendragarh ground water critical?')" class="shrink-0 bg-brand-accent/10 hover:bg-brand-accent/25 border border-brand-accent/30 text-brand-accent px-4 py-2 rounded-xl font-bold text-xs transition-all">
+                                Groundwater Status
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- State Policies and Subsidies -->
+    <section id="schemes" class="py-20 bg-brand-slate/40 border-t border-white/5 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto space-y-4 mb-16">
+                <span class="text-xs bg-emerald-500/10 text-emerald-400 px-3 py-1 rounded-full font-bold uppercase tracking-wider">Haryana Policy Support</span>
+                <h2 class="font-display font-extrabold text-3xl text-white">Supported Government Schemes</h2>
+                <p class="text-slate-400">Haryana is pioneer in incentivizing farmers to safeguard state water resources. Here are key schemes backed inside our app:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-brand-dark/40 border border-white/5 p-8 rounded-3xl space-y-4">
+                    <h3 class="font-display font-bold text-lg text-emerald-400">Mera Pani - Meri Virasat</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Offers financial incentive of **₹7,000 per acre** to farmers transitioning away from water-submerged paddy to crops like maize, cotton, and pulses in critical overdraft zones.
+                    </p>
+                </div>
+                <div class="bg-brand-dark/40 border border-white/5 p-8 rounded-3xl space-y-4">
+                    <h3 class="font-display font-bold text-lg text-brand-accent">MICADA Micro-Irrigation</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        The Canal Area Development Authority offers up to **85% subsidy** for installing drip and sprinkler arrays in fields to encourage high efficiency micro water application.
+                    </p>
+                </div>
+                <div class="bg-brand-dark/40 border border-white/5 p-8 rounded-3xl space-y-4">
+                    <h3 class="font-display font-bold text-lg text-violet-400">Atal Bhujal Yojana</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Empowers local community water security layouts, mapping and measuring aquifer health under village-level Water Budgeting to prevent excessive tubewell extraction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How To Install APK -->
+    <section id="how-to-use" class="py-24 max-w-5xl mx-auto px-6">
+        <div class="text-center space-y-4 mb-16">
+            <h2 class="font-display font-extrabold text-3xl text-white">Installing AquaHaryana Native App</h2>
+            <p class="text-slate-400">Follow these basic, straightforward steps to experience the completed Android app in real-time on your smartphone or test system.</p>
+        </div>
+
+        <div class="space-y-6">
+            <div class="bg-brand-slate border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start">
+                <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold text-lg shrink-0 border border-brand-accent/20">
+                    1
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-lg font-bold text-white">Run or Preview on AI Studio Platform</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        The easiest and most immediate way to view the beautiful Compose interface, interact with the groundwater risk map, favorites list, or chat with the actual Gemini-powered AquaBot is inside Google AI Studio's sidebar preview screen.
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-brand-slate border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start">
+                <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold text-lg shrink-0 border border-brand-accent/20">
+                    2
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-lg font-bold text-white">Download or Export Android Package (APK/AAB)</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Click on the **Settings/Menu icon** on the top right header of the Google AI Studio interface. Select **"Export/Download"** options. You can easily bundle the source code as a ZIP archive, sync direct to GitHub, or build and fetch the signed debugging **APK** for direct loading onto your Android phone!
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-brand-slate border border-white/5 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row gap-6 items-start">
+                <div class="w-12 h-12 rounded-2xl bg-brand-accent/10 flex items-center justify-center text-brand-accent font-bold text-lg shrink-0 border border-brand-accent/20">
+                    3
+                </div>
+                <div class="space-y-2">
+                    <h3 class="text-lg font-bold text-white">Vercel Deployment Showcase</h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Since Vercel hosts web files and does not directly execute or compile Gradle Android structures, we have built this rich HTML5 showcase page using standard responsive styling. Anyone arriving at your Vercel URL can read this guide, examine water practices, and learn how to launch your app.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Modern Footer -->
+    <footer class="bg-brand-slate/80 border-t border-white/10 pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <!-- Brand Column -->
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <img src="aquasave_icon.png" alt="AquaHaryana Logo" class="w-10 h-10 rounded-xl object-cover border border-brand-accent/20">
+                    <span class="font-display font-bold text-xl text-white">AquaHaryana</span>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    A comprehensive visual dashboard and local offline AI companion raising awareness to halt dangerous groundwater overdrafting in Haryana's districts.
+                </p>
+            </div>
+
+            <!-- Quick Navigation Links -->
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide uppercase">Core Platform</h4>
+                <ul class="space-y-2 text-xs font-semibold text-slate-400">
+                    <li><a href="#practices" class="hover:text-brand-accent transition-colors">17 Conservation Practices</a></li>
+                    <li><a href="#aquabot" class="hover:text-brand-accent transition-colors">Voice AquaBot Assistant</a></li>
+                    <li><a href="#schemes" class="hover:text-brand-accent transition-colors">Haryana Govt Subsidies</a></li>
+                    <li><a href="#how-to-use" class="hover:text-brand-accent transition-colors">APK Manual Installation</a></li>
+                </ul>
+            </div>
+
+            <!-- State Water Policy Schemes -->
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide uppercase">State Schemes</h4>
+                <ul class="space-y-2 text-xs font-semibold text-slate-400">
+                    <li><a href="https://haryana.gov.in" target="_blank" class="hover:text-brand-accent transition-colors">Mera Pani Meri Virasat (₹7000/Acre)</a></li>
+                    <li><a href="https://haryana.gov.in" target="_blank" class="hover:text-brand-accent transition-colors">MICADA Drip-Sprinkler (85% Grants)</a></li>
+                    <li><a href="https://haryana.gov.in" target="_blank" class="hover:text-brand-accent transition-colors">Atal Bhujal Aquifer Protection</a></li>
+                    <li><a href="https://haryana.gov.in" target="_blank" class="hover:text-brand-accent transition-colors">Direct Seeded Rice Subsidy (DSR)</a></li>
+                </ul>
+            </div>
+
+            <!-- Project Meta & Credits -->
+            <div class="space-y-4">
+                <h4 class="text-white font-bold text-sm tracking-wide uppercase">Technical Stack</h4>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Built entirely with Native **Android Jetpack Compose**, modern Kotlin Coroutines, SQLite Room database engine, and integrated with the Server-Side **Google Gemini API**.
+                </p>
+                <div class="pt-2">
+                    <span class="inline-block bg-brand-accent/10 border border-brand-accent/25 text-brand-accent text-[10px] font-bold px-3 py-1 rounded-full uppercase">
+                        Offline Cache Enabled
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-500 gap-4">
+            <div class="text-center sm:text-left">
+                <p>AquaHaryana &copy; 2026. Built with Google AI Studio.</p>
+                <p class="text-[10px] text-slate-600 mt-1">This is an educational water resource and climate awareness platform dedicated to sustainable resource conservation in Haryana, India.</p>
+            </div>
+            <div class="flex gap-4 font-semibold text-slate-400">
+                <a href="#how-to-use" class="hover:text-white transition-colors">Installation Guide</a>
+                <span>•</span>
+                <a href="#practices" class="hover:text-white transition-colors">Conservation List</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Chat Simulator Script -->
+    <script>
+        const chatDemoReplies = {
+            'Tell me about Crop Diversification': `**Crop Diversification** involves moving away from water-guzzling paddy crops to cotton, maize, or pulses:\n\n• **Substantial Savings:** Conserves over **60% irrigation water** compared to traditional flooded paddy.\n• **Financial Support:** Under Haryana's **Mera Pani Meri Virasat** scheme, farmers receive **₹7,000 per acre** incentive directly in their bank accounts for crop shifts.\n• **Ideal Districts:** Recommended for Sirsa, Hisar, Kurukshetra, and Kaithal districts.`,
+            'How does DSR help rice farmers?': `**Direct Seeded Rice (DSR)** bypasses the continuous flood puddling stage:\n\n• **Direct Saving:** Sows seeds straight into fields via tractor arrays, saving **15% to 20%** of irrigation groundwater.\n• **State Incentive:** The Haryana government provides an immediate cash reward of **₹4,000 per acre** to support direct seeding.`,
+            'Is Mahendragarh ground water critical?': `Yes, **Mahendragarh** lies in the critically depleted groundwater zone in southern Haryana:\n\n• **Aquifers Depletion:** Due to sandy soils and heavy tubewell extraction, the water table depth is highly critical.\n• **Best Interventions:** Sub-surface Drip Irrigation (which has MICADA subsidies of up to **85%**) and artificial borewell recharge structures are strongly advised to replenish aquifers.`
+        };
+
+        function askDemo(question) {
+            const body = document.getElementById('chat-simulator-body');
+            
+            // Append User Question
+            const userHtml = `
+                <div class="flex items-start gap-3 justify-end">
+                    <div class="bg-brand-accent text-brand-dark p-3 rounded-2xl max-w-[80%] font-bold leading-relaxed">
+                        ${question}
+                    </div>
+                </div>
+            `;
+            body.innerHTML += userHtml;
+            body.scrollTop = body.scrollHeight;
+
+            // Typing Indicator
+            const typingId = 'typing-' + Date.now();
+            const typingHtml = `
+                <div class="flex items-start gap-3" id="${typingId}">
+                    <div class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center shrink-0 font-bold text-[9px] text-brand-accent">AB</div>
+                    <div class="bg-brand-slate text-slate-400 p-3.5 rounded-2xl max-w-[80%] leading-relaxed animate-pulse">
+                        AquaBot is typing...
+                    </div>
+                </div>
+            `;
+            setTimeout(() => {
+                body.innerHTML += typingHtml;
+                body.scrollTop = body.scrollHeight;
+            }, 300);
+
+            // Append Bot Response
+            setTimeout(() => {
+                const typingEl = document.getElementById(typingId);
+                if (typingEl) typingEl.remove();
+
+                const answer = chatDemoReplies[question] || "I specialize in Haryana water policies. Ask me about DSR, crop shifts, or local block aquifer details!";
+                const formattedAnswer = answer.replace(/\n/g, '<br>');
+                
+                const botHtml = `
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-brand-accent/20 flex items-center justify-center shrink-0 font-bold text-[9px] text-brand-accent">AB</div>
+                        <div class="bg-brand-slate text-slate-300 p-3.5 rounded-2xl max-w-[80%] leading-relaxed">
+                            ${formattedAnswer}
+                        </div>
+                    </div>
+                `;
+                body.innerHTML += botHtml;
+                body.scrollTop = body.scrollHeight;
+            }, 1200);
+        }
+
+        function filterPractices(category) {
+            const cards = document.querySelectorAll('.practice-card');
+            
+            // Update filter button styling
+            const buttons = ['all', 'farming', 'domestic', 'community'];
+            buttons.forEach(btn => {
+                const el = document.getElementById('btn-' + btn);
+                if (btn === category) {
+                    el.className = "px-4 py-1.5 rounded-full text-xs font-bold bg-brand-accent text-brand-dark transition-all";
+                } else {
+                    el.className = "px-4 py-1.5 rounded-full text-xs font-bold bg-white/5 text-slate-300 hover:bg-white/10 transition-all";
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'block';
+                } else if (card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
