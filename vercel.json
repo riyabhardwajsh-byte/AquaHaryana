@@ -1,8 +1,7 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/(.*)", "dest": "/index.html" }
+  "rewrites": [
+    { "source": "/((?!assets/|aquasave_icon.png|[^/]+\\.[^/]+$).*)", "destination": "/index.html" }
   ]
 }
